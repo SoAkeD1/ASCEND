@@ -1,0 +1,34 @@
+{
+  "lang": "English",
+  "kicker": "For parents",
+  "title": "A calm guide to Ascend",
+  "sub": "Six honest answers to the questions parents ask most. Every number below is read live from our rules.",
+  "faq": [
+    {
+      "q": "Will my child fall into debt?",
+      "a": "The limit is small: {limit_pct}% of what lands in their account each month, between {limit_min} and {limit_max}. The bill is paid in full every cycle, and if it isn't, spends pause straight away. There's no way to build up a big balance."
+    },
+    {
+      "q": "Are there hidden fees?",
+      "a": "No. Interest if the bill is paid on time: {interest_pct}%. Processing fee: {processing_fee}. Annual fee: {annual_fee}. Late fee: {late_fee}. All of these are listed in the Key Fact Statement your child must read before agreeing."
+    },
+    {
+      "q": "Will anyone call us or harass us if they're late?",
+      "a": "Never. Reminders go only to your child. After {grace_days} grace days spends pause, and if a bill stays unpaid we offer a {hardship_months}-month repayment plan. Any recovery is done only by {partner}, a regulated bank, under RBI rules. We never contact family, friends or college."
+    },
+    {
+      "q": "Is this one of those shady loan apps?",
+      "a": "No. The money is lent by {partner}, which is regulated by the RBI; Ascend is the app that helps students use it well. We never ask for contacts, photos, SMS or location, and complaints go to a named grievance officer, with escalation to the RBI after {grievance_days} days."
+    },
+    {
+      "q": "Why does a credit history matter at this age?",
+      "a": "Banks decide on future loans, rentals and even some jobs using credit history. Starting with a small limit and paying on time builds that history safely. A missed payment is reported to the bureaus only after {bureau_report_dpd} days, giving plenty of time to fix it."
+    },
+    {
+      "q": "Can I see what my child spends?",
+      "a": "Only if they choose to share, and even then you see their on-time status, streak and progress, never what they bought or how much. They can switch the link off at any time. It's their record to build."
+    }
+  ],
+  "foot": "Still unsure? Ask your child to show you the Key Fact Statement. Every fee is on it.",
+  "back": "Back"
+}

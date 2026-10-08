@@ -1,0 +1,60 @@
+﻿import { configSchema, type Config } from "@/lib/config/schema";
+import type { InflowRules, LimitRules } from "@/lib/engine/types";
+
+// Test fixtures only. These mirror the seeded defaults but are never imported by app code.
+export const config: Config = configSchema.parse({
+  limit_pct: 25,
+  limit_min: 1000,
+  limit_max: 5000,
+  ladder_max: 10000,
+  limit_rounding: 100,
+  min_age: 18,
+  min_inflow: 4000,
+  min_history_months: 3,
+  bounce_lookback_days: 90,
+  bounce_keywords: ["RETURN", "BOUNCE", "INSUFFICIENT"],
+  ladder: [
+    { cycles: 3, mult: 1.5 },
+    { cycles: 6, mult: 2.0 },
+    { cycles: 12, action: "graduate" },
+  ],
+  cycle_length_days: 30,
+  payday_due_offset_days: 2,
+  reminder_before_days: 3,
+  grace_days: 7,
+  bureau_report_dpd: 30,
+  freeze_dpd: 31,
+  recovery_dpd: 61,
+  dlg_invoke_dpd: 120,
+  interest_on_time_pct: 0,
+  late_fee: 0,
+  processing_fee: 0,
+  annual_fee: 0,
+  foreclosure_fee: 0,
+  hardship_apr_pct: 24,
+  hardship_months_options: [2, 3],
+  ascend_share_of_hardship: 0,
+  cooling_off_days: 3,
+  big_spend_confirm_pct: 50,
+  utilisation_nudge_pct: 30,
+  cashback_by_tier: [10, 20, 30],
+  cashback_min_cycle_spend: 500,
+  comeback_cycles: 3,
+  recheck_days: 60,
+  first_score_cycle: 6,
+  dpd_target_pct: 2,
+  brake_pct: 3.5,
+  stop_pct: 4.5,
+  dlg_cap_pct: 5,
+  interchange_pct: 1.1,
+  healthy_account_fee: 20,
+  graduation_fee: 500,
+  partner_bank_name: "Test Bank",
+  grievance_escalation_days: 30,
+  grievance_officer: { name: "Test Officer", email: "officer@example.test", phone: "000" },
+  moment_triggers: ["first_spend", "utilisation_cross", "due_soon", "cycle_closed", "ladder_unlock", "first_score"],
+});
+
+export const inflowRules: InflowRules = { bounce_keywords: config.bounce_keywords };
+export const limitRules: LimitRules = config;
+

@@ -2,26 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  background: #fafaf7;
+  color: #141a22;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .card {
+    @apply rounded-[16px] border border-[rgba(20,26,34,0.07)] bg-white shadow-card;
+  }
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[14px] px-5 text-[15px] font-[650] transition duration-150 ease-out disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-teal text-white shadow-button hover:-translate-y-px hover:bg-teal-dark active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply btn border border-[#CBD3CC] bg-white text-teal hover:-translate-y-px hover:border-teal active:translate-y-0;
+  }
+  .btn-amber {
+    @apply btn bg-amber text-white hover:-translate-y-px hover:bg-amber-deep active:translate-y-0;
+  }
+  .btn-link {
+    @apply min-h-[40px] text-[13px] font-semibold text-teal underline underline-offset-2;
+  }
+  .field {
+    @apply w-full rounded-[12px] border border-[#D5DBD5] bg-white px-3.5 py-3 text-[16px] text-ink outline-none transition placeholder:text-[#9AA3AE] focus:border-teal focus:ring-4 focus:ring-[rgba(15,92,77,0.12)];
+  }
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold text-ink;
+  }
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.07em] text-teal;
+  }
+  .h-title {
+    @apply text-[26px] font-[780] leading-tight tracking-[-0.03em];
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes ascSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Respect users who ask the OS for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0s !important;
   }
 }
