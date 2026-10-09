@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { Icon, type IconName } from "./Icon";
 
 /** POST/PUT/PATCH/DELETE to /api/... and return the JSON, or throw the server's message. */
@@ -121,9 +122,13 @@ export function MomentCard({ tip, why, label, tone = "teal", id }: { tip: string
   );
 }
 
+/**
+ * Bottom sheet. Rendered into document.body (a portal): the page's slide-in animation uses a
+ * transform, which would otherwise trap this fixed overlay inside the page and under the tab bar.
+ */
 export function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
-  if (!open) return null;
-  return (
+  if (!open || typeof document === "undefined") return null;
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-[rgba(20,26,34,0.42)]" onClick={onClose}>
       <div
         role="dialog"
@@ -136,7 +141,8 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
         <h2 className="text-[20px] font-[750] tracking-[-0.02em]">{title}</h2>
         <div className="mt-3">{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
@@ -151,7 +157,11 @@ export function SignOutButton({ className = "btn-secondary w-full" }: { classNam
 
 export function Confetti() {
   const colors = ["#0F5C4D", "#9BE0C9", "#C2410C", "#F2A57A", "#2E8B74"];
-  return (
+  // Draw only after the page has loaded in the browser, so server and browser output match.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return createPortal(
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-40 overflow-hidden">
       {Array.from({ length: 28 }, (_, i) => (
         <span
@@ -160,6 +170,7 @@ export function Confetti() {
           style={{ left: `${(i * 37) % 100}%`, background: colors[i % colors.length], animationDelay: `${(i % 7) * 0.08}s` }}
         />
       ))}
-    </div>
+    </div>,
+    document.body,
   );
 }
