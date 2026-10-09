@@ -37,3 +37,6 @@ next-env.d.ts
 
 # local database
 .pglite/
+.vercel
+.env*
+!.env.example

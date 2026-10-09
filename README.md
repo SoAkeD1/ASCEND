@@ -13,7 +13,7 @@ that inflow, and grow it only by paying on time.
 
 ## Live demo
 
-**https://ascend-soaked1.vercel.app** (hosted on Vercel, database on Supabase)
+**https://ascend-three-tan.vercel.app** (hosted on Vercel, database on Supabase)
 
 - **Students:** click *Get started*, enter any email, and use the sign-in code shown on screen
   (sandbox, no real email is sent). KYC accepts any 12-digit Aadhaar and any 10-character PAN.
