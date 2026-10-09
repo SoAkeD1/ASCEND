@@ -22,7 +22,7 @@ export default async function SlipPage() {
     { n: 1, when: d ? `${shortDate(d[1])} · ${c.reminder_before_days} days before` : `${c.reminder_before_days} days before the due date`, body: "A reminder to you, with the exact amount and date." },
     { n: 2, when: d ? `${shortDate(d[2])} · due date` : "Due date", body: "AutoPay tries to pay. If it can't, you'll see a one-tap pay button." },
     { n: 3, when: d ? `${shortDate(d[3])} – ${shortDate(addDays(d[4], -1))}` : `Days 1–${c.grace_days} late`, body: `Grace. Spends pause, the fee is ${inr(c.late_fee)}, and paying clears everything.` },
-    { n: 4, when: d ? `From ${shortDate(d[4])}` : `Days ${c.grace_days + 1}–${c.freeze_dpd - 1} late`, body: `Weekly reminders to you only. On day ${c.bureau_report_dpd} late (${d ? shortDate(d.reported) : "—"}) it's reported to the bureaus.` },
+    { n: 4, when: d ? `From ${shortDate(d[4])}` : `Days ${c.grace_days + 1}–${c.freeze_dpd - 1} late`, body: `Weekly reminders to you only. On day ${c.bureau_report_dpd} late${d ? ` (${shortDate(d.reported)})` : ""} it's reported to the bureaus.` },
     { n: 5, when: d ? `From ${shortDate(d[5])}` : `From day ${c.freeze_dpd} late`, body: `The line freezes and you can split what you owe into a ${c.hardship_months_options.join(" or ")}-month plan.` },
     { n: 6, when: d ? `From ${shortDate(d[6])}` : `From day ${c.recovery_dpd} late`, body: `${c.partner_bank_name}'s regulated recovery process. We never contact family or friends.` },
   ];
