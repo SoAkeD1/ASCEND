@@ -22,6 +22,8 @@ that inflow, and grow it only by paying on time.
 - Code: https://github.com/SoAkeD1/ASCEND
 - Live smoke test (signs in as admin, runs a full student journey on a demo user, then deletes it):
   `node tests/live/journey.mjs https://ascend-three-tan.vercel.app <admin-email>`
+- Live smoke test (signs in as admin, runs a full student journey on a demo user, then deletes it):
+  `node tests/live/journey.mjs https://ascend-three-tan.vercel.app <admin-email>`
 
 ---
 
