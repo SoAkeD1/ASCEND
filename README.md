@@ -20,6 +20,8 @@ that inflow, and grow it only by paying on time.
 - **Parents:** `/parents` (English and हिंदी) and the read-only `/family/<token>` link a student shares.
 - **Sandbox shop:** `/test-merchant` makes a QR you can pay from your Ascend line.
 - Code: https://github.com/SoAkeD1/ASCEND
+- Live smoke test (signs in as admin, runs a full student journey on a demo user, then deletes it):
+  `node tests/live/journey.mjs https://ascend-three-tan.vercel.app <admin-email>`
 
 ---
 
